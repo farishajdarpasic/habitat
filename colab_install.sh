@@ -16,7 +16,7 @@ catch() {
 #Install Miniconda
 cd /content/
 wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh -bfp /usr/local/miniconda3
 
 echo "Creating conda environment"
 conda create -n habitat python=3.6
