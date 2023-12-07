@@ -30,5 +30,7 @@ fi
 conda install -y --prefix /usr/local -c "${CHANNEL}" -c conda-forge habitat-sim headless withbullet python=3.6
 
 #Shallow GIT clone for speed
+echo "We reached here ..."
 git clone https://github.com/facebookresearch/habitat-lab/tree/v0.1.6 --depth 1
 git clone https://github.com/facebookresearch/habitat-sim/tree/v0.1.6 --depth 1
+echo "Done"
