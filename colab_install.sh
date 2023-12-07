@@ -17,9 +17,11 @@ catch() {
 cd /content/
 wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh -bfp /usr/local/miniconda3
+export PATH=/usr/local/miniconda3/bin:$PATH
 
 echo "Creating conda environment"
 conda create -n habitat python=3.6
+conda activate habitat
 echo "Done"
 cd /usr/local
 ls
