@@ -16,28 +16,15 @@ catch() {
 #Install Miniconda
 cd /content/
 wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh -bfp /usr/local
+bash Miniconda3-latest-Linux-x86_64.sh
 
-echo "JESI LI DO OVDJE"
-#Adds the conda libraries directly to the colab path.
-ln -s /usr/local/lib/python3.10/dist-packages /usr/local/lib/python3.10/site-packages
-echo "JESI LI DO OVDJE 2"
+echo "Creating conda environment"
+conda create -n habitat python=3.6
+echo "Done"
+cd /usr/local
+ls
+cd
+ls
 
-##Install Habitat-Sim and Magnum binaries
-conda config --set default_threads 4 #Enables multithread conda installation
-NIGHTLY="${NIGHTLY:-false}" #setting the ENV $NIGHTLY to true will install the nightly version from conda
-CHANNEL="${CHANNEL:-aihabitat}"
-if ${NIGHTLY}; then
-  CHANNEL="${CHANNEL}-nightly"
-fi
-echo "JESI LI DO OVDJE 3"
-conda install -y --prefix /usr/local -c "${CHANNEL}" -c conda-forge habitat-sim headless withbullet python=3.10
-echo "JESI LI DO OVDJE 4"
-
-#Shallow GIT clone for speed
-echo "We reached here ..."
-git clone https://github.com/facebookresearch/habitat-lab/tree/v0.1.6 --depth 1
-git clone https://github.com/facebookresearch/habitat-sim/tree/v0.1.6 --depth 1
-echo "Done..."
-pwd
+cd /content/
 ls
