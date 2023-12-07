@@ -33,4 +33,4 @@ conda install -y --prefix /usr/local -c "${CHANNEL}" -c conda-forge habitat-sim 
 echo "We reached here ..."
 git clone https://github.com/facebookresearch/habitat-lab/tree/v0.1.6 --depth 1
 git clone https://github.com/facebookresearch/habitat-sim/tree/v0.1.6 --depth 1
-echo "Done."
+echo "Done..."
