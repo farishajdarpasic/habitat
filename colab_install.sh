@@ -17,16 +17,9 @@ catch() {
 cd /content/
 wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh -bfp /usr/local
-echo "OVDJE SAM"
-cd /usr/local/lib/
-ls
-cd /usr/local/lib/python3.6/
-ls
-cd /content
-
 
 #Adds the conda libraries directly to the colab path.
-ln -s /usr/local/lib/python3.6/dist-packages /usr/local/lib/python3.6/site-packages
+ln -s /usr/local/lib/python3.10/dist-packages /usr/local/lib/python3.10/site-packages
 
 ##Install Habitat-Sim and Magnum binaries
 conda config --set default_threads 4 #Enables multithread conda installation
@@ -42,3 +35,5 @@ echo "We reached here ..."
 git clone https://github.com/facebookresearch/habitat-lab/tree/v0.1.6 --depth 1
 git clone https://github.com/facebookresearch/habitat-sim/tree/v0.1.6 --depth 1
 echo "Done..."
+pwd
+ls
