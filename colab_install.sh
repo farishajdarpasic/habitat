@@ -32,26 +32,3 @@ conda install -y --prefix /usr/local -c "${CHANNEL}" -c conda-forge habitat-sim 
 #Shallow GIT clone for speed
 git clone https://github.com/facebookresearch/habitat-lab/tree/v0.1.6 --depth 1
 git clone https://github.com/facebookresearch/habitat-sim/tree/v0.1.6 --depth 1
-
-#Install Requirements.
-cd /content/habitat-lab/
-set +e
-pip install -r ./requirements.txt
-reqs=(./habitat_baselines/**/requirements.txt)
-pip install "${reqs[@]/#/-r}"
-set -e
-python setup.py develop --all
-pip install . #Reinstall to trigger sys.path update
-pip install -U --force-reinstall cffi #Fix bug with CFFI version issue
-cd /content/habitat-sim/
-rm -rf habitat_sim/ # Deletes the habitat_sim folder so it doesn't interfere with import path
-
-#Download Assets
-wget -c http://dl.fbaipublicfiles.com/habitat/habitat-test-scenes.zip && unzip -o habitat-test-scenes.zip
-wget -c http://dl.fbaipublicfiles.com/habitat/objects_v0.1.zip && unzip -o objects_v0.1.zip -d data/objects/
-wget -c http://dl.fbaipublicfiles.com/habitat/locobot_merged.zip && unzip -o locobot_merged.zip -d data/objects
-
-#symlink assets appear in habitat-api folder
-ln -s /content/habitat-sim/data /content/habitat-lab/.
-
-touch /content/habitat_sim_installed
