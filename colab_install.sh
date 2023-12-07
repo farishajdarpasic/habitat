@@ -15,7 +15,9 @@ catch() {
 }
 #Install Miniconda
 cd /content/
+echo "JESAM LI BAR OVDJE"
 wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && bash Miniconda3-latest-Linux-x86_64.sh -bfp /usr/local
+echo "ILI OVDJE"
 
 #Adds the conda libraries directly to the colab path.
 ln -s /usr/local/lib/python3.6/dist-packages /usr/local/lib/python3.6/site-packages
